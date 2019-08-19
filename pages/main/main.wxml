@@ -1,0 +1,31 @@
+<view class="content">
+  <view class="today">
+    <view class="newDate">{{date}}</view>
+    <view class="info">
+      <view class="temp">
+        <view class="wendu">当前温度 : {{wendu}}℃</view>
+        <view class="high">{{high}}</view>
+        <view class="low">{{low}}</view>
+      </view>
+      <view class="weather">{{type}} {{fengxiang}} 最大风力: {{fengli}} 级</view>
+      <view class="hint">{{hint}}</view>
+      <view class="city">{{city}}</view>
+    </view>
+  </view>
+  <!-- <import src="../temaplate/temaplate.wxml"   /> -->
+  <view class="future">
+    <block wx:for="{{future}}" wx:key="id">
+      <view class="f-item" date="{{item}}">
+        <view class="f-today">{{item.date}}</view>
+        <view class="weather">
+        {{item.type}}
+        </view>
+        <view class="weather">
+        {{item.fengxiang}}
+        </view>
+        <view class="high">{{item.high}}</view>
+        <view class="">{{item.low}}</view>
+      </view>
+    </block>
+  </view>
+</view>
