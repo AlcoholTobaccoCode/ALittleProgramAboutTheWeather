@@ -9,10 +9,12 @@
     }
   },
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "未来天气",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f6f9",
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json"
 }
