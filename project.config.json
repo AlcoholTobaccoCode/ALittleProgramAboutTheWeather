@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.8.0",
 	"appid": "wx040823e7ec4d6fc5",
-	"projectname": "calc",
+	"projectname": "Weather",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

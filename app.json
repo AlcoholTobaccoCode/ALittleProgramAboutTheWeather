@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/main/main",
-    "pages/temaplate/temaplate"
+    "pages/temaplate/temaplate",
+    "pages/testHeFeng/testHeFeng"
   ],
   "permission": {
     "scope.userLocation": {
@@ -16,5 +17,18 @@
     "backgroundColor": "#f5f6f9",
     "enablePullDownRefresh": true
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/main/main",
+      "text": "本地天气",
+      "iconPath": "pages/assets/imgs/shouye.png",
+      "selectedIconPath": "pages/assets/imgs/shouye.png"
+    },{
+      "pagePath": "pages/testHeFeng/testHeFeng",
+      "text": "还在测试",
+      "iconPath": "pages/assets/imgs/lishi.png",
+      "selectedIconPath": "pages/assets/imgs/lishi.png"
+    }]
+  }
 }

@@ -1,0 +1,25 @@
+<view class="content">
+  <view class="today">
+    <view class="newDate">{{date}}</view>
+    <view class="info">
+      <view class="temp">
+        <view class="wendu">当前温度 : {{wendu}}℃</view>
+        <view class="high">最高温度: {{high}}℃</view>
+        <view class="low">最低温度: {{low}}℃</view>
+        <view class="low">相对湿度: {{hum}}</view>
+      </view>
+      <view class="weather">{{type}}</view>
+      <view class="weather">{{fengxiang}} - 风力: {{fengli}} 级</view>
+      <view class="hint">{{hint}}</view>
+      <view class="city">{{city}}</view>
+      <view class="msg">
+        <text>This test's about global weather.</text>
+        <text>But...</text>
+        <text>It's still under test.</text>
+        <text>Good luck .</text>
+      </view>
+    </view>
+
+  </view>
+
+</view>

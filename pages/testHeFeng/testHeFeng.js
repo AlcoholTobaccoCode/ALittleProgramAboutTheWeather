@@ -17,8 +17,8 @@ Page({
     fengxiang: '',
     fengli: '',
     hint: '',
-    city: '',
-    future: "asd"
+    cityDistrict: '',
+    hum: '',
   },
 
   // 生命周期函数--监听页面加载
@@ -84,12 +84,13 @@ Page({
       },
       success: function (res) {
         // console.log(res);
-        var city = res.data.result.addressComponent.city;
-        city = city.replace("市", "");
+        var cityDistrict = res.data.result.addressComponent.district;
+        cityDistrict = cityDistrict.replace("区", "");
         page.setData({
-          city: city
+          cityDistrict: cityDistrict
         });
-        page.loadWeather(city);
+        page.loadWeather(cityDistrict);
+        page.newWeather(cityDistrict);
       }
     });
   },
@@ -97,41 +98,48 @@ Page({
   loadWeather: function (city) {
     var page = this;
     wx.request({
-      url: 'https://wthrcdn.etouch.cn/weather_mini?city=' + city,
+      url: 'https://free-api.heweather.net/s6/weather/forecast?location=' + city + '&key=47ec4494a026432ca9bb875f8d5c33a6',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        // console.log(res)
+        var future = res.data.HeWeather6[0].daily_forecast;
+        var todayInfo = future[0];
+        var today = todayInfo;
+        page.setData({
+          date: today.date,
+          high: today.tmp_max,
+          low: today.tmp_min,
+          fengxiang: today.wind_dir,
+          fengli: today.wind_sc,
+          hum: today.hum,
+          city: res.data.HeWeather6[0].basic.location,
+        })
+      }
+    });
+  },
+  newWeather(cityDistrict) {
+    var page = this;
+    wx.request({
+      url: 'https://wthrcdn.etouch.cn/weather_mini?city=' + cityDistrict,
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         // console.log(res)
         var future = res.data.data.forecast;
-        // 得到目前的天气
         var todayInfo = future.shift();
         var today = res.data.data;
         today.todayInfo = todayInfo;
         page.setData({
-          date: todayInfo.date,
           wendu: today.wendu,
-          high: todayInfo.high,
-          low: todayInfo.low,
           type: todayInfo.type,
-          fengxiang: todayInfo.fengxiang,
-          fengli: todayInfo.fengli,
           hint: res.data.data.ganmao,
-          city: todayInfo.city,
-          future: future,
         })
-        // 提取最大风力
-        var reg = new RegExp("^[0-9]*$");
-        var getFengli = todayInfo.fengli;
-        for (var i = 0; i < getFengli.length; i++) {
-          var newFL = parseInt(getFengli[i]);
-          if (reg.test(newFL)) {
-            page.setData({
-              fengli: getFengli[i],
-            })
-          }
-        }
       }
     });
   }
+
+
 })
