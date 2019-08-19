@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/testHeFeng/testHeFeng",
     "pages/main/main",
-    "pages/temaplate/temaplate",
-    "pages/testHeFeng/testHeFeng"
+    "pages/temaplate/temaplate"
   ],
   "permission": {
     "scope.userLocation": {

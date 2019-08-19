@@ -14,12 +14,10 @@
       <view class="city">{{city}}</view>
       <view class="msg">
         <text>This test's about global weather.</text>
-        <text>But...</text>
-        <text>It's still under test.</text>
+        <text>But...It's still under test.</text>
         <text>Good luck .</text>
       </view>
     </view>
 
   </view>
-
 </view>
